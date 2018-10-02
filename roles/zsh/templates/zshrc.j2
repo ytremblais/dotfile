@@ -1,0 +1,67 @@
+
+# {{ generated_file }}
+
+# Path to your oh-my-zsh installation.
+export ZSH=/home/{{ ansible_user }}/.oh-my-zsh
+
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="agnoster"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# User configuration
+
+plugins=(zsh-completions)
+plugins+=(git)
+plugins+=(docker) 
+#plugins+=(docker-compose)
+#plugins+=(aws)
+plugins+=(kubectl)
+#plugins+=(docker-machine)
+
+source {{ dotfiles_user_home }}/.oh-my-zsh/oh-my-zsh.sh
+
+autoload -U compinit && compinit
+
+# ssh
+export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+#GO conf
+#export GOPATH=$HOME/gowork
+
+#export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$HOME/bin
+
+#alias wuzz="$GOPATH/bin/wuzz"
+#alias sudoenv="sudo env PATH=$PATH"
+#alias srkt="sudoenv rkt"
+
+alias docker-swarm="docker --tlsverify -H=yrfrlx220.fr.yvesrocher.com:2376"
+
+alias docker-compose-swarm="docker-compose -H yrfrlx220.fr.yvesrocher.com:2376 --tlsverify --tlscacert ~/.docker/ca.pem --tlscert ~/.docker/cert.pem --tlskey ~/.docker/key.pem"
+
+#the fuck config
+eval $(thefuck --alias)
+alias fuuck='export THEFUCK_REQUIRE_CONFIRMATION=False; fuck; export THEFUCK_REQUIRE_CONFIRMATION=True'
+
+#disable zsh autocorrect, thefuck rulezzz!
+unsetopt correct_all
+
+
+#JAVA conf
+export JAVA_HOME=$HOME/bin/jvm/jdk1.8.0_102
+export PATH=$PATH:$JAVA_HOME/bin
+
+
+#ACBUILD conf
+#export ACBUILD_BIN_DIR=~/git/acbuild/bin
+
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+#[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+
+neofetch

@@ -1,0 +1,9 @@
+---
+
+- name: Installation ROFI
+  import_tasks: install.yml
+  tags: rofi
+
+- name: Configuration ROFI
+  import_tasks: config.yml
+  tags: rofi

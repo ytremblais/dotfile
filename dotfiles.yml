@@ -1,0 +1,16 @@
+---
+
+- hosts: laptop
+  connection: local
+  become: true 
+  roles:
+    - { role: git , tags: git }
+    - { role: firefox , tags: firefox }
+    - { role: docker , tags: docker }
+    - { role: terminator , tags: terminator }
+    - { role: misc , tags: misc }
+    - { role: zsh , tags: zsh }
+    - oh-my-zsh
+    - { role: i3 , tags: i3 }
+    - rofi
+    
