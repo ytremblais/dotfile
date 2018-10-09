@@ -17,6 +17,11 @@
     dest: "{{ dotfiles_role_dir }}/terminator.config"
     #mode: 0444 
 
+- name : Create Terminator directory
+  file:
+    dest: "{{ dotfiles_user_home }}/.config/terminator" 
+    state: directory
+
 - name: Link terminator config file to dotfile
   file:
     src: "{{ dotfiles_role_dir }}/terminator.config"

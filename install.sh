@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ansible-playbook -v dotfiles.yml -i laptop
+ansible-playbook -vv dotfiles.yml -i laptop
