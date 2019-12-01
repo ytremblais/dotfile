@@ -10,7 +10,5 @@
     - { role: terminator , tags: terminator }
     - { role: misc , tags: misc }
     - { role: zsh , tags: zsh }
-    - oh-my-zsh
-    - { role: i3 , tags: i3 }
-    - rofi
+    - { role: oh-my-zsh, tags: ohmyz }
     
